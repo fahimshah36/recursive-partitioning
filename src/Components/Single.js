@@ -37,7 +37,6 @@ const Single = ({initialColor, fullSize = false, removeSelf}) => {
         flexDirection: split === "H" ? "column" : "row",
         height: fullSize ? "100vh" : "100%",
         width: fullSize ? "100vw" : "100%",
-        border: fullSize ? "none" : "1px solid black",
         backgroundColor: initialColor,
         position: "relative",
       }}
@@ -63,14 +62,60 @@ const Single = ({initialColor, fullSize = false, removeSelf}) => {
             width: "100%",
           }}
         >
-          <button onClick={() => handleClick("V")}>V</button>
-          <button onClick={() => handleClick("H")}>H</button>
+          <button
+            onClick={() => handleClick("V")}
+            style={{
+              padding: "10px 20px",
+              fontSize: "16px",
+              backgroundColor: "#A9A9A9",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+              transition: "background-color 0.3s",
+            }}
+            onMouseOver={(e) => (e.target.style.backgroundColor = "#808080")}
+            onMouseOut={(e) => (e.target.style.backgroundColor = "#A9A9A9")}
+          >
+            V
+          </button>
+          <button
+            onClick={() => handleClick("H")}
+            style={{
+              padding: "10px 20px",
+              fontSize: "16px",
+              backgroundColor: "#A9A9A9",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+              transition: "background-color 0.3s",
+            }}
+            onMouseOver={(e) => (e.target.style.backgroundColor = "#808080")}
+            onMouseOut={(e) => (e.target.style.backgroundColor = "#A9A9A9")}
+          >
+            H
+          </button>
           {removeSelf && (
             <button
               onClick={removeSelf}
-              style={{position: "absolute", top: 10, right: 10}}
+              style={{
+                padding: "10px 20px",
+                fontSize: "16px",
+                backgroundColor: "#FF0000",
+                color: "white",
+                border: "none",
+                borderRadius: "5px",
+                cursor: "pointer",
+                position: "absolute",
+                top: 10,
+                right: 10,
+                transition: "background-color 0.3s",
+              }}
+              onMouseOver={(e) => (e.target.style.backgroundColor = "#FF6347")}
+              onMouseOut={(e) => (e.target.style.backgroundColor = "#FF0000")}
             >
-              Remove
+              -
             </button>
           )}
         </div>
